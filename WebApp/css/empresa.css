@@ -1,0 +1,18 @@
+.areaForm {
+    max-width: 450px;
+    margin: 50px auto;
+}
+.areaForm  .card-body .btnSubmit {
+    text-align: center;
+}
+.areaForm  .card-body button {
+    width: 200px;
+}
+.parsley-errors-list {
+    padding-left: 0;
+}
+.parsley-required {
+    color: red;
+    padding-top: 5px;
+    list-style-type: none;  
+}
