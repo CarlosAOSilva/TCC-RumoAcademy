@@ -1,0 +1,60 @@
+.text-primary {
+  color: #000000 !important;
+  background-color: #0698dbd5 !important;
+  opacity: 0.75;
+}
+
+.text-danger {
+  color: #000000 !important;
+  background-color: #be1224 !important;
+  opacity: 0.75;
+}
+
+.text-success {
+  color: #000000 !important;
+  background-color: #20b342 !important;
+  opacity: 0.75;
+}
+.card-body {
+  background-image: url(https://static.wikia.nocookie.net/mtgsalvation_gamepedia/images/0/07/THB_Elspeth.jpg/revision/latest?cb=20191026095433);
+  border-color: #000000;
+  transition: all 0.3s ease-out;
+  border: 2px solid #000000;
+  padding: 10px 0px;
+  box-shadow: 0px 0px 30px #99106b;
+  color: #f8f8f8;
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+button {
+  background: #B9DFFF;
+  color: #080000;
+  border: 1px solid #000000;
+  border-radius: 20px;
+  box-shadow: 5px 5px 5px #070707;
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+
+}
+.card {
+  display: flex;
+  flex-direction: column;
+}
+
+html, body {
+  height: 100%;
+  margin: 0;
+}
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+td, th {
+  border: 2px solid black;
+  padding: 8px;
+  text-align: center;
+  color: #ffffff;
+}
+thead{
+  text-align: center;
+}
