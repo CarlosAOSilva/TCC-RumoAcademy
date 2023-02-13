@@ -39,10 +39,10 @@ function ConstruirTabela(linhas) {
             moedaIsOk = "text-success";
         }
 
-        htmlTabela += `<tr><th>${linha.nomeProduto}</a></th>
-                        <td class="${moedaIsOk}">${FormatarMoeda(linha.precoAtual)}</td>
-                        <td>${FormatarMoeda(linha.precoAntigo == 0) ? "Não há registro de preço antigo" : linha.precoAntigo}</td>
-                        <td>${FormatarData(linha.dataConsulta)}</td></tr>`
+        htmlTabela += `<tr><th id="nomeP">${linha.nomeProduto}</a></th>
+                        <td id="moeda01" class="${moedaIsOk}">${FormatarMoeda(linha.precoAtual)}</td>
+                        <td id="moeda02">${FormatarMoeda(linha.precoAntigo == 0) ? "Não há registro de preço antigo" : linha.precoAntigo}</td>
+                        <td id="data01">${FormatarData(linha.dataConsulta)}</td></tr>`
     });
 
     $('#tabelaProduto tbody').html(htmlTabela);

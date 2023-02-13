@@ -61,17 +61,10 @@ function FormatarDataAmericana(dataString) {
 
     return ano + "-" + mes + "-" + dia;
 }
-/*
-function formatCnpj(cnpj) {
-    cnpj = cnpj.replace(/\D/g, '');
-    cnpj = cnpj.padEnd(14, '0');
 
-    return cnpj.replace(/(\d{2})(\d{3})(\d{3})(\d{4})(\d{2})/, '$1.$2.$3/$4-$5');
-}
-
-function removeCnpjMask(cnpj) {
+function removerCnpjMask(cnpj) {
     return cnpj.replace(/\D/g, '');
-}*/
+}
 
 var nivelAcesso = localStorage.getItem('nivelAcesso');
 

@@ -15,46 +15,115 @@
   background-color: #20b342 !important;
   opacity: 0.75;
 }
+
 .card-body {
-  background-image: url(https://static.wikia.nocookie.net/mtgsalvation_gamepedia/images/0/07/THB_Elspeth.jpg/revision/latest?cb=20191026095433);
   border-color: #000000;
   transition: all 0.3s ease-out;
   border: 2px solid #000000;
   padding: 10px 0px;
   box-shadow: 0px 0px 30px #99106b;
-  color: #f8f8f8;
+  color: #020202;
   font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 }
 
-button {
-  background: #B9DFFF;
-  color: #080000;
-  border: 1px solid #000000;
-  border-radius: 20px;
-  box-shadow: 5px 5px 5px #070707;
-  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-
-}
 .card {
   display: flex;
   flex-direction: column;
 }
 
-html, body {
+html,
+body {
   height: 100%;
   margin: 0;
 }
-table {
-  width: 100%;
-  border-collapse: collapse;
-}
 
-td, th {
+th, th, tr{
   border: 2px solid black;
   padding: 8px;
+  color: #000000;
   text-align: center;
-  color: #ffffff;
+  border-color: #000000;
+  border: 2px solid #000000;
 }
-thead{
+
+#nome {
   text-align: center;
+  background-color: rgb(222, 209, 135);
+  opacity: 0.5;
+  color: #000000;
+}
+
+#precoAntigo {
+  text-align: center;
+  background-color: rgb(222, 209, 135);
+  opacity: 0.5;
+  color: #000000;
+
+}
+
+#precoAtual {
+  text-align: center;
+  background-color: rgb(222, 209, 135);
+  opacity: 0.5;
+  color: #000000;
+}
+
+#data {
+  text-align: center;
+  background-color: rgb(222, 209, 135);
+  opacity: 0.5;
+  color: #000000;
+}
+
+#tabelaProduto_info {
+  color: #080000;
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+#tabelaProduto {
+  background-image: url(https://static.wikia.nocookie.net/mtgsalvation_gamepedia/images/0/07/THB_Elspeth.jpg/revision/latest?cb=20191026095433);
+  color: #000000;
+
+}
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+}
+/* Estilização dos links da barra de navegação */
+nav a {
+  color: black;
+  text-decoration: none;
+  margin-right: 10px;
+}
+/* Estilização do rodapé */
+footer {
+  text-align: center;
+}
+#moeda01{
+  background-color:slategray;
+  opacity: 0.75;
+  border-color: #000000;
+  border: 2px solid #000000;
+
+}
+#moeda02{
+  background-color:slategray;
+  opacity: 0.75;
+  border-color: #000000;
+  border: 2px solid #000000;
+}
+#nomeP{
+  background-color:slategrey;
+  opacity: 0.75;
+  border-color: #000000;
+  border: 2px solid #000000;
+}
+#data01{
+  background-color:slategray;
+  opacity: 0.75;
+  border-color: #000000;
+  border: 2px solid #000000;
+  
 }

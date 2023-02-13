@@ -20,6 +20,49 @@ namespace ApiBot.Repositories
         {
             _bot = new Bot("https://www.bazardebagda.com.br");
         }
+        private void InserirProdutos(Produtos register)
+        {
+            string comandoSql = @"INSERT INTO Produtos
+                                        (NomeProduto,
+                                         PrecoAntigo,
+                                         PrecoAtual,
+                                         DataConsulta,
+                                         SiteProduto)
+                                            VALUES
+                                        (@NomeProduto,
+                                         @PrecoAntigo,
+                                         @PrecoAtual,
+                                         @DataConsulta,
+                                         @SiteProduto);";
+
+            using (var cmd = new SqlCommand(comandoSql, _conexao))
+            {
+                cmd.Parameters.AddWithValue("@NomeProduto", register.nomeProduto);
+                cmd.Parameters.AddWithValue("@PrecoAntigo", register.precoAntigo);
+                cmd.Parameters.AddWithValue("@PrecoAtual", register.precoAtual);
+                cmd.Parameters.AddWithValue("@DataConsulta", register.dataConsulta);
+                cmd.Parameters.AddWithValue("@SiteProduto", register.siteProduto);
+
+                cmd.ExecuteNonQuery();
+            }
+        }
+        public void Inserir()
+        {
+            var produtos = _bot.Obter().ToList();
+
+            foreach (var produto in produtos)
+            {
+                if (SeExiste(produto.nomeProduto, produto.precoAtual))
+                {
+                    Atualizar(produto);
+                }
+                else
+                {
+                    InserirProdutos(produto);
+                }
+
+            }
+        }
         public List<Produtos> ListarProdutos(string? nomeProduto)
         {
             string comandoSql = @"SELECT NomeProduto, PrecoAntigo, PrecoAtual, DataConsulta, SiteProduto FROM Produtos";
@@ -50,23 +93,6 @@ namespace ApiBot.Repositories
             }
         }
 
-        public void Inserir()
-        {
-            var produtos = _bot.Obter().ToList();
-
-            foreach (var produto in produtos)
-            {
-                if (SeExiste(produto.nomeProduto, produto.precoAtual))
-                {
-                    Atualizar(produto);
-                }
-                else
-                {
-                    InserirProdutos(produto);
-                }
-
-            }
-        }
         private bool SeExiste(string nomeProduto, decimal precoAtual)
         {
             string comandoSql = "SELECT COUNT (*) FROM Produtos WHERE  NomeProduto = @NomeProduto AND PrecoAtual = @PrecoAtual";
@@ -126,32 +152,6 @@ namespace ApiBot.Repositories
                 }
             }
             return precoAtual;
-        }
-        private void InserirProdutos(Produtos register)
-        {
-            string comandoSql = @"INSERT INTO Produtos
-                                        (NomeProduto,
-                                         PrecoAntigo,
-                                         PrecoAtual,
-                                         DataConsulta,
-                                         SiteProduto)
-                                            VALUES
-                                        (@NomeProduto,
-                                         @PrecoAntigo,
-                                         @PrecoAtual,
-                                         @DataConsulta,
-                                         @SiteProduto);";
-
-            using (var cmd = new SqlCommand(comandoSql, _conexao))
-            {
-                cmd.Parameters.AddWithValue("@NomeProduto", register.nomeProduto);
-                cmd.Parameters.AddWithValue("@PrecoAntigo", register.precoAntigo);
-                cmd.Parameters.AddWithValue("@PrecoAtual", register.precoAtual);
-                cmd.Parameters.AddWithValue("@DataConsulta", register.dataConsulta);
-                cmd.Parameters.AddWithValue("@SiteProduto", register.siteProduto);
-
-                cmd.ExecuteNonQuery();
-            }
         }
     }
 }

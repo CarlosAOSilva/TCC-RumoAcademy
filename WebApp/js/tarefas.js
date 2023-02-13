@@ -1,7 +1,7 @@
 exibirElementosTarefas();
 function exibirElementosEmpresaTarefas() {
     if (nivelAcesso == '1') {
-        $("#cardCadastroTarefa").show();
+        $("#cardCadastroTarefas").show();
     }
 }
 

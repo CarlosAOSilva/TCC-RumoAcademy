@@ -1,7 +1,7 @@
 exibirElementosEmpresa();
 function exibirElementosEmpresa() {
     if (nivelAcesso == '1') {
-        $("#cardCadastroEmpresa").show();
+        $("#cardCadastroEmpresas").show();
     }
 }
 
@@ -37,7 +37,7 @@ function ConstruirTabela(linhas) {
         var botaoAlterar = '<button class="btn btn-primary btn-sm me-2" onclick="Alterar(' + linha.Cnpj + ')">Alterar</button>';
         var botaoExcluir = '<button class="btn btn-danger btn-sm" onclick="Excluir(' + linha.Cnpj + ')">Excluir</button>';
 
-        htmlTabela = htmlTabela + `<tr><th>${(linha.Cnpj)}</th><td>${linha.razaoSocial}</td><td>${FormatarData(linha.dataCadastro)}</td><td>${botaoAlterar + botaoExcluir}</td></tr>`;
+        htmlTabela = htmlTabela + `<tr><th>${linha.Cnpj}</th><td>${linha.razaoSocial}</td><td>${FormatarData(linha.dataCadastro)}</td><td>${botaoAlterar + botaoExcluir}</td></tr>`;
     });
 
     $('#tabelaEmpresas tbody').html(htmlTabela);
