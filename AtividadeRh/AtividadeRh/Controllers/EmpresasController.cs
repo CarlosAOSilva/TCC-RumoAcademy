@@ -8,7 +8,7 @@ using System.Security.Claims;
 
 namespace ApiSistemaRegistro.Controllers
 {
-    //[Authorize]
+    [Authorize]
     [ApiController]
     public class EmpresasController : ControllerBase
     {
@@ -36,7 +36,7 @@ namespace ApiSistemaRegistro.Controllers
         /// </summary>
         /// <returns></returns>
         /// <response code="200">Sucesso, e retorna os elementos cadastrados</response>
-        //[Authorize(Roles = "1")]
+        [Authorize(Roles = "1")]
         [HttpPost("empresas")]
         public IActionResult Inserir([FromBody] Empresas model)
         {
@@ -61,7 +61,7 @@ namespace ApiSistemaRegistro.Controllers
         /// </summary>
         /// <returns></returns>
         /// <response code="200">Sucesso, e retorna o elemento encontrado via CNPJ</response>
-        //[Authorize(Roles = "1")]
+        [Authorize(Roles = "1")]
         [HttpDelete("empresas/{cnpj}")]
         public IActionResult Deletar([FromRoute] string? cnpj)
         {
@@ -75,7 +75,7 @@ namespace ApiSistemaRegistro.Controllers
         /// </summary>
         /// <returns></returns>
         /// <response code="200">Sucesso, e retorna o elemento encontrado via CNPJ </response>
-        //[Authorize(Roles = "1")]
+        [Authorize(Roles = "1")]
         [HttpPut("empresas")]
         public IActionResult Atualizar([FromBody] Empresas model)
         {

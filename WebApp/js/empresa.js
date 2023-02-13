@@ -9,7 +9,7 @@ $(document).ready(function () {
     ListarEmpresas();
 });
 
-var tabelaEmpresa;
+var tabelaEmpresas;
 var urlBaseApi = "https://localhost:44382";
 
 function LimparCorpoTabelaEmpresas() {
@@ -41,10 +41,10 @@ function ConstruirTabela(linhas) {
     });
 
     $('#tabelaEmpresas tbody').html(htmlTabela);
-    if (tabelaEmpresa == undefined) {
-        tabelaEmpresa == $('#tabelaEmpresas').DataTable({
+    if (tabelaEmpresas == undefined) {
+        tabelaEmpresas == $('#tabelaEmpresas').DataTable({
             language: {
-                url: 'https://cdn.datatables.net/plug-ins/1.13.1/i18n/pt-BR.json'
+                url: 'dist/datatables/i18n.json'
             }
         });
     }
@@ -56,13 +56,22 @@ function ObterValoresFormulario() {
     var dataCadastro = $("#inputDataCadastro").val();
 
     var objeto = {
-        Cnpj: (Cnpj),
+        Cnpj: RemoverMascaraCnpj(Cnpj),
         razaoSocial: razaoSocial,
         dataCadastro: dataCadastro,
     };
 
     return objeto;
 }
+
+document.getElementById("inputCnpj").addEventListener("input", function() {
+    this.value = this.value.replace(/\D/g, '').replace(/(\d{2})(\d{3})(\d{3})(\d{4})(\d{2})/, "$1.$2.$3/$4-$5");
+});
+
+var objeto = ObterValoresFormulario();
+var cnpjSemMascara = RemoverMascaraCnpj(objeto.Cnpj);
+objeto.Cnpj = cnpjSemMascara;
+var json = JSON.stringify(objeto);
 
 function EnviarFormularioParaApi() {
     var rotaApi = '/empresas';

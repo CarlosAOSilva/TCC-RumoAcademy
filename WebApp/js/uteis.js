@@ -1,5 +1,5 @@
 $(document).ready(function () {
-    $('.cnpj').mask('00.000.000/0000-00');
+    $('.cnpj').mask('00.000.000/0000-00', { reverse: true});
 
     $.ajaxSetup({
         headers: { 'Authorization': 'Bearer' + localStorage.getItem('bearer') },
@@ -62,8 +62,8 @@ function FormatarDataAmericana(dataString) {
     return ano + "-" + mes + "-" + dia;
 }
 
-function removerCnpjMask(cnpj) {
-    return cnpj.replace(/\D/g, '');
+function RemoverMascaraCnpj(cnpjComMascara) {
+    return cnpjComMascara.replace(/\D/g,'');
 }
 
 var nivelAcesso = localStorage.getItem('nivelAcesso');
