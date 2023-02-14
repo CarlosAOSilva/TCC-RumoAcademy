@@ -1,6 +1,8 @@
 # TCC-RumoAcademy
 Aqui apresento atividades da Jornada do Desenvolvedor .Net, em especifico os TCCs.
 
+--- Há dois arquivos em Pdf descrevendo o que é solicitado para realizar as Atividades ---
+
 --- Sistema Registro de Tarefas --- Ainda em Construção
 * Api para coleta de dados e autenticação.
 * Criação do Banco de Dados
